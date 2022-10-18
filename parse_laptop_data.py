@@ -131,12 +131,14 @@ list_prices(laptops)
 #   - With '1 TB SSD' storage
 
 # 3.1 TODO: Update the `laptops` dictionary to reflect these changes.
-for i in laptops:
-    for types_listed in i["types"]:
-        if types_listed["colors"][0] == "space gray":
-            types_listed["colors"].remove("space gray")
-        if types_listed["storage"][1] == "1 TB SSD":
-            types_listed["storage"].remove("1 TB SSD")
+# for i in laptops:
+#     for types_listed in i["types"]:
+#         if types_listed["colors"][0] == "space gray":
+#             types_listed["colors"].remove("space gray")
+#         if types_listed["storage"][1] == "1 TB SSD":
+#             types_listed["storage"].remove("1 TB SSD")
+laptops[0]['types'][1]['colors'].remove("space gray")
+laptops[0]['types'][1]['storage'].remove("1 TB SSD")
 
 # 3.2 TODO: Print out the Macbook Pro dictionary to see the changes.
 print(laptops[0])
