@@ -76,23 +76,24 @@ laptops = [
         "description": "The Dell XPS is an absolutely brilliant laptop. The 2020  version rocks an 11th-generation Intel Core i3, i5 or i7 processor and a bezel-less 'Infinity Edge' display. This Dell XPS continues to be the most popular Windows laptop in the world. What's more, there's a wide range of customization options, so you can really make the Dell XPS the best laptop for your needs. ",
     },
 ]
-
-
 # 1.1 TODO: Print out the MacBook Pro url
 print(laptops[0]["url"])
 
 # 1.2 TODO: Write a function called `print_laptop_data` that takes in two parameters: `laptop` and `topic`, and returns nothing.
 def print_laptop_data(laptop, topic):
     #   If `laptop` is 'Apple Macbook Pro', the function should print out data about that computer.
-    if laptop == 'Apple Macbook Pro':
+    if laptop == "Apple Macbook Pro":
         for i in laptops[0]["types"][0]:
             if i == topic:
                 print(f'{laptop} {topic}: {laptops[0]["types"][0][i]}')
     # If `laptop` is 'Dell XPS', the function should print out data about that computer.
-    else:
+    elif laptop == "Dell XPS":
         for i in laptops[1]["types"][1]:
             if i == topic:
-                 print(f'{laptop} {topic}: {laptops[1]["types"][0][i]}')
+                print(f'{laptop} {topic}: {laptops[1]["types"][0][i]}')
+    else:
+        print('Please try again')
+
 #   NOTE: There are multiple types of each computer. Assume the user wants to know about the ones with
 #       the smaller (and therefore cheaper) screen size.
 #
@@ -115,11 +116,13 @@ print_laptop_data("Dell XPS", "colors")
 print_laptop_data("Dell XPS", "screen_size")
 # 2.1 TODO: Write a function called `list_prices` that takes one parameter: a list of computers, and returns nothing.
 def list_prices(laptops):
-#   Using nested loops, the function should print out all possible computer prices, one price on each line.
+    #   Using nested loops, the function should print out all possible computer prices, one price on each line.
     for i in laptops:
-        for types_listed in i['types']:
-            for price_listed in types_listed['price']:
+        for types_listed in i["types"]:
+            for price_listed in types_listed["price"]:
                 print(price_listed)
+
+
 #   No need to specify which computer each price belongs to.
 # 2.2 TODO: Call your function to see that it works.
 list_prices(laptops)
@@ -129,11 +132,11 @@ list_prices(laptops)
 
 # 3.1 TODO: Update the `laptops` dictionary to reflect these changes.
 for i in laptops:
-    for types_listed in i['types']: 
-        if types_listed["colors"][0] == 'space gray':
-            types_listed['colors'].remove('space gray')
-        if types_listed['storage'][1] == '1 TB SSD':
-            types_listed['storage'].remove('1 TB SSD')
+    for types_listed in i["types"]:
+        if types_listed["colors"][0] == "space gray":
+            types_listed["colors"].remove("space gray")
+        if types_listed["storage"][1] == "1 TB SSD":
+            types_listed["storage"].remove("1 TB SSD")
 
 # 3.2 TODO: Print out the Macbook Pro dictionary to see the changes.
 print(laptops[0])
